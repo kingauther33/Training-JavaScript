@@ -111,3 +111,90 @@ const books = [
 ];
 
 const words = ["dog", "dig", "log", "bag", "wag"];
+
+const raceResults = [
+  "TestRace1",
+  "TestRace2",
+  "TestRace3",
+  "TestRace4",
+  "TestRace4",
+  "TestRace5",
+];
+
+const runner = {
+  first: "Eliud",
+  last: "Kipchoge",
+  country: "Kenya",
+  title: "Elder of the Order of the Golden Heart of Kenya",
+};
+
+const results = [
+  {
+    first: "Eliud",
+    last: "Kipchoge",
+    country: "Kenya",
+  },
+  {
+    first: "Feyisa",
+    last: "Lilelsa",
+    country: "Ethipeo",
+  },
+  {
+    first: "Galen",
+    last: "Rupp",
+    country: "US",
+  },
+];
+
+const response = ["HTTP/1.1", "200 OK", "application/json"];
+
+const role = "host";
+const person = "Jools Holland";
+const role2 = "Director";
+const person2 = "James Cameron";
+
+const makeNewDeck = () => {
+  return {
+    deck: [],
+    drawnCard: [],
+    suits: ["hearts", "diamonds", "spades", "clubs"],
+    values: "2,3,4,5,6,7,8,9,10,J,Q,K,A",
+    initializeDeck() {
+      const { suits, values, deck } = this;
+      for (let value of values.split(",")) {
+        for (let suit of suits) {
+          deck.push({ value, suit });
+        }
+      }
+    },
+    drawCard() {
+      const card = this.deck.pop();
+      this.drawnCard.push(card);
+      return card;
+    },
+    drawMultiple(numCards) {
+      const cards = [];
+      for (let i = 0; i < numCards; i++) {
+        cards.push(this.drawCard());
+      }
+      return cards;
+    },
+    shuffle() {
+      const { deck } = this;
+      // loop over array backwards
+      for (let i = deck.length - 1; i > 0; i--) {
+        // pick random number before current I
+        let j = Math.floor(Math.random() * (i + 1));
+        //swap
+        [deck[i], deck[j]] = [deck[j], deck[i]];
+      }
+    },
+  };
+};
+
+const deck1 = makeNewDeck();
+const deck2 = makeNewDeck();
+deck1.initializeDeck();
+deck2.initializeDeck();
+deck1.drawMultiple(7);
+deck2.drawMultiple(10);
