@@ -6,8 +6,7 @@ const moveX = (element, amount, delay) => {
 			const currLeft = element.getBoundingClientRect().left;
 			if (elRight + amount > bodyBoundary) {
 				reject({ bodyBoundary, elRight, amount });
-			}
-			else {
+			} else {
 				element.style.transform = `translateX(${currLeft + amount}px)`;
 				resolve();
 			}
@@ -36,6 +35,26 @@ moveX(btn, 100, 1000)
 		console.log(`Cannot Move! Body is ${bodyBoundary}px wide`);
 		console.log(`Element is at ${elRight}px, ${amount}px is too large!`);
 	});
+
+const btn = document.querySelector('button');
+async function animateRight(el, amount) {
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	await moveX(el, amount, 1000);
+	moveX(el, 100, 1000);
+}
+
+animateRight(btn, 100).catch((err) => {
+	console.log('ALL DONE');
+	animateRight(btn, -100);
+});
 
 //This function moves an element "amount" number of pixels after a delay.
 //If the element will stay on screen, we move the element and call the onSuccess callback function
