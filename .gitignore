@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/node,react,visualstudiocode,visualstudio
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,react,visualstudiocode,visualstudio
+# Created by https://www.toptal.com/developers/gitignore/api/yarn,node,visualstudiocode,visualstudio,react
+# Edit at https://www.toptal.com/developers/gitignore?templates=yarn,node,visualstudiocode,visualstudio,react
 
 ### Node ###
 # Logs
@@ -154,6 +154,22 @@ sketch
 # Ignore all local history of files
 .history
 .ionide
+
+### yarn ###
+# https://yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# if you are NOT using Zero-installs, then:
+# comment the following lines
+!.yarn/cache
+
+# and uncomment the following lines
+# .pnp.*
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
@@ -539,4 +555,4 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
-# End of https://www.toptal.com/developers/gitignore/api/node,react,visualstudiocode,visualstudio
+# End of https://www.toptal.com/developers/gitignore/api/yarn,node,visualstudiocode,visualstudio,react
